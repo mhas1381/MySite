@@ -1,7 +1,7 @@
 from dataclasses import fields
 from re import search
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post,Category
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy= 'created_date'
@@ -11,3 +11,4 @@ class PostAdmin(admin.ModelAdmin):
     # ordering = ['-created_date']
     search_fields = ['title' , 'content']
 admin.site.register(Post , PostAdmin)
+admin.site.register(Category)
