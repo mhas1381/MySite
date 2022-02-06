@@ -63,15 +63,10 @@
 				          <li><a href="{% url 'website:index' %}">Home</a></li>
 				          <li><a href="{% url 'website:about' %}">About</a></li>
 				          <li class="menu-has-children"><a href="">Blog</a>
-				            <ul>
-				              <li><a href="{% url 'blog:index' %}">Blog Home</a></li>
-				              <li><a href="{% url 'blog:single' %}">Blog Single</a></li>
-				            </ul>
+
 				          </li>	
-				          <li class="menu-has-children"><a href="">Pages</a>
+				          
 				            <ul>
-				            	  <li><a href="elements.html">Elements</a></li>
-						          <li class="menu-has-children"><a href="">Level 2 </a>
 						            <ul>
 						              <li><a href="#">Item One</a></li>
 						              <li><a href="#">Item Two</a></li>
@@ -190,7 +185,7 @@
 									<div class="feature-img">
 										<img class="img-fluid" src="{% static 'img/blog/feature-img1.jpg' %}" alt="">
 									</div>
-									<a class="posts-title" href="blog-single.html"><h3>{{post.title}}</h3></a>
+									<a class="posts-title" href="{% url 'blog:single' pid=post.id %}"><h3>{{post.title}}</h3></a>
 									<p class="excert">
 										{{post.content}}
 									</p>
