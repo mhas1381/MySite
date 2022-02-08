@@ -1,3 +1,4 @@
+{% load blog_tags%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,13 @@
     <title>Test page</title>
 </head>
 <body>
-    {{post.title}}
+    Post counts : {% postsCount %}
+    <p>
+        post titles : 
+        {% postTitles as poststitle %}
+        {% for post in poststitle %}
+        <p>{{post}}</p>
+        {% endfor %}
+    </p>
 </body>
 </html>
