@@ -5,8 +5,10 @@ from django.shortcuts import render,get_object_or_404
 from blog.models import Post
 # Create your views here.
 
-def blog_view(request):
+def blog_view(request , cat_name=None):
     posts = Post.objects.filter(status =1)
+    if cat_name:
+        posts = Post.objects.filter(category__name = cat_name)
     context = {'posts':posts}
     return render(request ,'blog/blog-home.html' , context )
 def blog_single(request , pid):
