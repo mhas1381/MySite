@@ -9,12 +9,15 @@
 </head>
 <body>
     Post counts : {% postsCount %}
-    <p>
+    <!-- <p>
         post titles : 
         {% postTitles as poststitle %}
         {% for post in poststitle %}
         <p>{{post.content|snippet}}</p>
         {% endfor %}
-    </p>
+
+    </p> -->
+    popular posts:
+    {% popularPosts %}
 </body>
 </html>
