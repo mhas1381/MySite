@@ -13,7 +13,7 @@
         post titles : 
         {% postTitles as poststitle %}
         {% for post in poststitle %}
-        <p>{{post}}</p>
+        <p>{{post.content|snippet}}</p>
         {% endfor %}
     </p>
 </body>
