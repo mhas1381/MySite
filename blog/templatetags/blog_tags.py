@@ -18,9 +18,9 @@ def function():
 def snippet(content , arg = 15):
     return content[:arg]
 
-@register.inclusion_tag('blog/popularPosts.html')
-def popularPosts():
-    posts = Post.objects.filter(status =1 ).order_by('-published_date')[:3]
+@register.inclusion_tag('blog/latest-posts.html')
+def latest_posts():
+    posts = Post.objects.filter(status =1 ).order_by('-published_date')[:4]
     return {'posts':posts}
 
 @register.inclusion_tag('blog/post-categories.html')
