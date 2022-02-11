@@ -31,3 +31,12 @@ def blog_category(request , cat_name):
     posts = Post.objects.filter(category__name = cat_name)
     context = {'posts':posts}
     return render(request ,'blog/blog-home.html' , context)
+
+def blog_search(request):
+    # print(request.__dict__)
+    posts = Post.objects.filter(status = 1)
+    if request.method =='GET':
+        # print('its get request')
+        posts = posts.filter(content__contains = request.GET.get('s'))
+    context = {'posts':posts}
+    return render(request, 'blog/blog-home.html' , context)
