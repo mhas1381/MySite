@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from website.models import Contact
 from website.forms import NameForm,Contact_form, NewsLetterForm
+from django.contrib import messages
 def index_view(request):
     return render(request , 'website/index.html')
 
@@ -13,6 +14,9 @@ def contact_view(request):
         form = Contact_form(request.POST)
         if form.is_valid():
             form.save()
+            messages.add_message(request , messages.SUCCESS , 'your ticket sumbitted succesfully')
+        else:
+                messages.add_message(request , messages.ERROR, 'yout ticket not sumbitted')
     form = Contact_form()
     return render(request , "website/contact.html", {'form':form})
 
@@ -21,7 +25,8 @@ def newsLetter_view(request):
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
-                form.save()
+                form.save()              
+        else:
                 return HttpResponseRedirect('/')
     else:
                 return HttpResponseRedirect('/')
