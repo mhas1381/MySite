@@ -1,4 +1,5 @@
 from email import message
+import email
 from django.db import models
 
 # Create your models here.
@@ -14,3 +15,9 @@ class Contact(models.Model):
         return self.name
     class Meta:
         ordering = ['-created_date']
+
+class NewsLetter(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
