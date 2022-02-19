@@ -4,6 +4,7 @@ from email import message
 from unicodedata import name
 from django import forms
 from website.models import *
+from captcha.fields import CaptchaField
 
 class NameForm(forms.Form):
     name = forms.CharField(max_length=255)
@@ -12,7 +13,7 @@ class NameForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
 
 class Contact_form(forms.ModelForm):
-
+    captcha = CaptchaField()
     class Meta:
         model = Contact
         fields = '__all__'
