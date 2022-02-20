@@ -3,6 +3,7 @@ from accounts.urls import *
 # Create your views here.
 
 def login_view(request):
+
     return render(request, 'accounts/login.html')
 
 # def logout_view(request):
