@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'captcha',
     
     'website',
-    'blog'
+    'blog',
+    'accounts'
 ]
 #site framework
 SITE_ID = 2
